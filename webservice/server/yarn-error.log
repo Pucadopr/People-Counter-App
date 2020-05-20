@@ -1,0 +1,45 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js
+
+PATH: 
+  /Users/pelumioladokun/.pyenv/shims:/opt/intel//openvino_2020.2.117/deployment_tools/model_optimizer:/Users/pelumioladokun/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  13.9.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, open '/Users/pelumioladokun/Library/Caches/Yarn/v6/npm-npmlog-4.1.2-08a7f2a8bf734604779a9efa4ad5cc717abb954b-integrity/node_modules/npmlog/.yarn-metadata.json'
+
+npm manifest: 
+  {
+    "name": "intel-people-counter-server",
+    "version": "1.0.0",
+    "description": "Node server to support api calls from the people counter UI.",
+    "main": "./server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/udacity"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://www.udacity.com",
+    "dependencies": {
+      "mosca": "^2.5.2",
+      "uuid4": "^1.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
