@@ -1,22 +1,36 @@
-# Deploy a People Counter App at the Edge
+# Edge People Counter App
 
-| Details            |              |
-|-----------------------|---------------|
-| Programming Language: |  Python 3.5 or 3.6 |
+This app is a people counter app deployed at the edge. The app detects people in the frame, the average time they spend in the frame and also counts the total number of people that have been through the frame. 
 
-![people-counter-python](./images/people-counter-image.png)
+## Processing Custom Layers
 
-## What it Does
+The model used for this project is the Faster rcnn inception v2 trained on the coco dataset. Model was downloaded from the Tensorflow Objct detection model Zoo and no additional processing was done to the custom layers. 
 
-The people counter application will demonstrate how to create a smart video IoT solution using Intel® hardware and software tools. The app will detect people in a designated area, providing the number of people in the frame, average duration of people in frame, and total count.
+##  Model Performance
 
-## How it Works
+I tested one model, the Faster_rcnn_inception_v2_coco_2018_01_28 for this app as I was satisfied with it's performance in making inference. I compared model performance by comparing Latency and memory of the model before and after conversion to Intermediate representation. 
 
-The counter will use the Inference Engine included in the Intel® Distribution of OpenVINO™ Toolkit. The model used should be able to identify people in a video frame. The app should count the number of people in the current frame, the duration that a person is in the frame (time elapsed between entering and exiting a frame) and the total count of people. It then sends the data to a local web server using the Paho MQTT Python package.
+* Latency before conversion 1271ms
+* Latency after conversion 889ms
 
-You will choose a model to use and convert it with the Model Optimizer.
+* Memory before conversion 562mb 
+* Memory after conversion 281mb 
 
-![architectural diagram](./images/arch_diagram.png)
+## Assess Model Use Cases
+
+Some of the potential use cases of the people counter app are; To help improve Access control of a building by keeping track of people coming and going, Concerts control to stick to the capacity of venue.
+
+Each of these use cases would be useful because it would help prevent unwanted access to building and also help prevent overcrowding at events. 
+
+## Assess Effects on End User Needs
+
+Lighting, model accuracy, and camera focal length/image size have different effects on a deployed edge model. The potential effects of each of these are as follows:
+
+* If lighting is too dim or if model is to be used in the dark, more work would have to go into selecting the right model or including some custom layers to improve inference in low light conditions. 
+
+* If model accuracy is poor, then it would probably not identify everyonee passing through the frame and would end up being redundant and can lead to overcrowding.
+
+* If focal length is increased, model might be too narrow and not capture the full frame, miss some people in the frame and if decreased can reduce inference power of model.
 
 ## Requirements
 
