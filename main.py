@@ -92,11 +92,11 @@ def infer_on_stream(args, client):
     DEVICE = args.device
     CPU_EXTENSION = args.cpu_extension
     
-    ### TODO: Load the model through `infer_network` ###
+    # Load the model through `infer_network` ###
     infer_network.load_model(model, CPU_EXTENSION, DEVICE)
     network_shape = infer_network.get_input_shape()
 
-    ### TODO: Handle the input stream ###
+    # Handle the input stream ###
     # Checks for live feed
     if args.input == 'CAM':
         input_validated = 0
