@@ -1,59 +1,33 @@
-# Project Write-Up
+# Edge People Counter App
 
-You can use this document as a template for providing your project write-up. However, if you
-have a different format you prefer, feel free to use it as long as you answer all required
-questions.
+This app is a people counter app deployed at the edge. The app detects people in the frame, the average time they spend in the frame and also counts the total number of people that have been through the frame. 
 
-## Explaining Custom Layers
+## Processing Custom Layers
 
-The process behind converting custom layers involves...
+The model used for this project is the Faster rcnn inception v2 trained on the coco dataset. Model was downloaded from the Tensorflow Objct detection model Zoo and no additional processing was done to the custom layers. 
 
-Some of the potential reasons for handling custom layers are...
+##  Model Performance
 
-## Comparing Model Performance
+I tested one model, the Faster_rcnn_inception_v2_coco_2018_01_28 for this app as I was satisfied with it's performance in making inference. I compared model performance by comparing Latency and memory of the model before and after conversion to Intermediate representation. 
 
-My method(s) to compare models before and after conversion to Intermediate Representations
-were...
+* Latency before conversion 1271ms
+* Latency after conversion 889ms
 
-The difference between model accuracy pre- and post-conversion was...
-
-The size of the model pre- and post-conversion was...
-
-The inference time of the model pre- and post-conversion was...
+* Memory before conversion 562mb 
+* Memory after conversion 281mb 
 
 ## Assess Model Use Cases
 
-Some of the potential use cases of the people counter app are...
+Some of the potential use cases of the people counter app are; To help improve Access control of a building by keeping track of people coming and going, Concerts control to stick to the capacity of venue.
 
-Each of these use cases would be useful because...
+Each of these use cases would be useful because it would help prevent unwanted access to building and also help prevent overcrowding at events. 
 
 ## Assess Effects on End User Needs
 
-Lighting, model accuracy, and camera focal length/image size have different effects on a
-deployed edge model. The potential effects of each of these are as follows...
+Lighting, model accuracy, and camera focal length/image size have different effects on a deployed edge model. The potential effects of each of these are as follows:
 
-## Model Research
+* If lighting is too dim or if model is to be used in the dark, more work would have to go into selecting the right model or including some custom layers to improve inference in low light conditions. 
 
-[This heading is only required if a suitable model was not found after trying out at least three
-different models. However, you may also use this heading to detail how you converted 
-a successful model.]
+* If model accuracy is poor, then it would probably not identify everyonee passing through the frame and would end up being redundant and can lead to overcrowding.
 
-In investigating potential people counter models, I tried each of the following three models:
-
-- Model 1: [Name]
-  - [Model Source]
-  - I converted the model to an Intermediate Representation with the following arguments...
-  - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
-  
-- Model 2: [Name]
-  - [Model Source]
-  - I converted the model to an Intermediate Representation with the following arguments...
-  - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
-
-- Model 3: [Name]
-  - [Model Source]
-  - I converted the model to an Intermediate Representation with the following arguments...
-  - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
+* If focal length is increased, model might be too narrow and not capture the full frame, miss some people in the frame and if decreased can reduce inference power of model.
